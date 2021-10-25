@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link } from 'wouter'
 
 export default function Gif({ id, title, url }) {
     return (
-        <a href={`#${id}`} className="gif">
+        <>
+            <Link to={`/detail/${id}`}>
+                <span className='gif'>
+                    <img alt={title} key={url} src={url} />
+                </span>
+            </Link>
             <h5 > {title} </h5>
-            <img alt={title} key={url} src={url} />
-        </a>
+        </>
+
     )
 }
