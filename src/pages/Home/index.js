@@ -23,7 +23,7 @@ export default function Home() {
         <>
             <h1>APP GIFYs</h1>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type='text' value={keyword}></input>
+                <input placeholder='search gif ...' onChange={handleChange} type='text' value={keyword}></input>
             </form>
             <h3>Gifs populares</h3>
             <ul>

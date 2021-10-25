@@ -2,8 +2,6 @@
   text-align: center;
 }
 
-
-
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
@@ -13,21 +11,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-<<<<<<< HEAD
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-=======
-}
->>>>>>> 6e97568698b4a1083e4bbbf1a78b9c29a676f351
