@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'wouter'
+import "./Category.css";
 
 export default function Category({ name, options = [] }) {
     return (
-        <div>
-            <h3>{name}</h3>
-            <ul>
-                {
-                    options.map((popGif) => (
-                        <li key={popGif}>
-                            <Link to={`/search/${popGif}`}>{popGif}</Link>
-                        </li>
-                    )
-                    )
-                }
+        <div className='Category'>
+            <h3 className="Category-title">{name}</h3>
+            <ul className="Category-list">
+                {options.map((singleOption) => (
+                    <li key={singleOption}>
+                        <Link className="Category-link" to={`/search/${singleOption}`}>
+                            {singleOption}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     )

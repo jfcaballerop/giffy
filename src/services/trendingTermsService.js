@@ -1,6 +1,6 @@
 import { API_KEY, API_URL } from '../config'
 
-function getTrendingGifs() {
+function getTrendingTerms() {
     const URL = `${API_URL}/trending/searches?api_key=${API_KEY}`;
 
     return fetch(URL)
@@ -12,4 +12,4 @@ function getTrendingGifs() {
         )
 }
 
-export { getTrendingGifs };
+export { getTrendingTerms };

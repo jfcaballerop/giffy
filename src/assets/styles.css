@@ -23,3 +23,7 @@ a {
     text-decoration: none;
     color: #eee;
 }
+
+.ListOfGifs {
+    min-height: 100% !important;
+}

@@ -21,12 +21,13 @@ function App() {
         <section className="App-content">
 
           <Link to="/">
-            HOME
+            <figure className="App-logo">
+              <img alt='Giffy logo' src='/logo.png' />
+            </figure>
           </Link>
           <GifsContextprovider>
-
-            <Route path="/search/:keyword" component={SearchResults} />
             <Route path="/" component={Home} />
+            <Route path="/search/:keyword" component={SearchResults} />
             <Route path="/detail/:id" component={Detail} />
           </GifsContextprovider>
 
