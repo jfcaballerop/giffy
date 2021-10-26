@@ -3,6 +3,8 @@ import { Link, useLocation } from 'wouter'
 import { useGifs } from '../../hooks/useGifs'
 import Spinner from '../../components/Spinner';
 import ListOfGifs from '../../components/ListOfGifs';
+import Category from '../../components/Category';
+import TrendingSearches from '../../components/TrendingSearches';
 
 const POPULAR_GIFS = ["matrix", "pepe", "españa"]
 export default function Home() {
@@ -35,17 +37,7 @@ export default function Home() {
                     loading ? <Spinner></Spinner> : <ListOfGifs gifs={gifs}></ListOfGifs>
                 }
             </div>
-            <h3>Gifs populares</h3>
-            <ul>
-                {
-                    POPULAR_GIFS.map((popGif) => (
-                        <li key={popGif}>
-                            <Link to={`/search/${popGif}`}>{popGif}</Link>
-                        </li>
-                    )
-                    )
-                }
-            </ul>
+            <TrendingSearches></TrendingSearches>
         </>
     )
 }

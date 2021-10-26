@@ -1,5 +1,4 @@
-
-.gif{
+.gif {
     border: 1px solid #eee;
     color: #fff;
     border-radius: 15px;
@@ -9,6 +8,7 @@
     flex-direction: column;
     padding: 32px;
     width: 100%;
+    max-width: 250px;
 }
 
 .gif h4 {
