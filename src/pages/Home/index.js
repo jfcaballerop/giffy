@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'wouter'
-import { useGifs } from '../../hooks/useGifs'
-import Spinner from '../../components/Spinner';
-import ListOfGifs from '../../components/ListOfGifs';
-import Category from '../../components/Category';
-import TrendingSearches from '../../components/TrendingSearches';
+import React, { useState } from 'react';
+import { useLocation } from 'wouter';
+import ListOfGifs from 'components/ListOfGifs';
+import Spinner from 'components/Spinner';
+import TrendingSearches from 'components/TrendingSearches';
+import { useGifs } from 'hooks/useGifs';
 
-const POPULAR_GIFS = ["matrix", "pepe", "españa"]
 export default function Home() {
     const [keyword, setkeyword] = useState('');
     const [path, pushLocation] = useLocation()
