@@ -1,7 +1,7 @@
 import { API_KEY, API_URL } from 'config'
 
-function getGifs({ keyword = 'null' } = {}) {
-    const URL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=20&offset=0&rating=g&lang=es`;
+function getGifs({ keyword = 'null', limit = 25, page = 0 } = {}) {
+    const URL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=es`;
 
     return fetch(URL)
         .then(res => res.json())
