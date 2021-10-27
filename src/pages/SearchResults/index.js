@@ -5,9 +5,10 @@ import { useGifs } from 'hooks/useGifs'
 
 export default function SearchResults({ params }) {
     const { keyword } = params
-    const { loading, gifs, setPage } = useGifs({ keyword })
+    const { loading, gifs, setpage } = useGifs({ keyword })
 
-    const handleNextPage = () => setPage(prevPage => prevPage + 1)
+    const handleNextPage = () => setpage(prevPage => prevPage + 1)
+
 
     return <>
         {loading
