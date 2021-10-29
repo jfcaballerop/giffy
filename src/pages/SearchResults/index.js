@@ -7,7 +7,7 @@ import useNearScreen from 'hooks/useNearScreen'
 export default function SearchResults({ params }) {
     const { keyword } = params
     const { loading, gifs, setpage } = useGifs({ keyword })
-    const { externalRef } = useRef()
+    const externalRef = useRef(null)
     const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef })
 
     // const handleNextPage = () => setpage(prevPage => prevPage + 1)
@@ -15,9 +15,11 @@ export default function SearchResults({ params }) {
     const handleNextPage = () => console.log('next page')
 
     useEffect(() => {
+        console.log('externalRef', externalRef);
         if (isNearScreen) handleNextPage()
 
     })
+
 
     return <>
         {loading
@@ -27,10 +29,9 @@ export default function SearchResults({ params }) {
                     {decodeURI(keyword)}
                 </h3>
                 <ListOfGifs gifs={gifs} />
-                <div id="visor" ref={externalRef}></div>
             </>
         }
         <br />
-        {/* <button onClick={handleNextPage}>Get next page</button> */}
+        <div id="visor" ref={externalRef}></div>
     </>
 }
