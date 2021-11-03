@@ -1,24 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import Spinner from 'components/Spinner'
 import ListOfGifs from 'components/ListOfGifs'
 import { useGifs } from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
+import debounce from 'just-debounce-it'
 
 export default function SearchResults({ params }) {
     const { keyword } = params
     const { loading, gifs, setpage } = useGifs({ keyword })
-    const externalRef = useRef(null)
-    const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef })
+    const externalRef = useRef()
+    const { isNearScreen } = useNearScreen({
+        externalRef: loading ? null : externalRef,
+        onse: false
+    })
 
-    // const handleNextPage = () => setpage(prevPage => prevPage + 1)
+    console.log(isNearScreen);
 
-    const handleNextPage = () => console.log('next page')
+    const debounceNextPage = useCallback(debounce(
+        () => setpage(prevPage => prevPage + 1), 2000
+    ), [])
 
     useEffect(() => {
-        console.log('externalRef', externalRef);
-        if (isNearScreen) handleNextPage()
+        // console.log('externalRef', externalRef);
+        if (isNearScreen) debounceNextPage()
 
-    })
+    }, [])
 
 
     return <>
