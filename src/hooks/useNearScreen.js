@@ -8,7 +8,6 @@ export default function useNearScreen({ distance = '100px', externalRef, once = 
     let observer
 
     const element = externalRef ? externalRef.current : fromRef.current
-    if (!element) return
 
     const onChange = (entries, observer) => {
       const el = entries[0]
@@ -29,11 +28,11 @@ export default function useNearScreen({ distance = '100px', externalRef, once = 
         rootMargin: distance
       })
 
-      observer.observe(element)
+      if (element) observer.observe(element)
     })
 
     return () => observer && observer.disconnect()
-  }, [distance, externalRef, once])
+  })
 
   return { isNearScreen, fromRef }
 }

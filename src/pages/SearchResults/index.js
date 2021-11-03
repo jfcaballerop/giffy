@@ -16,15 +16,13 @@ export default function SearchResults({ params }) {
 
     console.log(isNearScreen);
 
-    const debounceNextPage = useCallback(debounce(
-        () => setpage(prevPage => prevPage + 1), 2000
-    ), [])
+    const debounceHandleNextPage = useCallback(debounce(
+        () => setpage(prevPage => prevPage + 1), 200
+    ), [setpage])
 
-    useEffect(() => {
-        // console.log('externalRef', externalRef);
-        if (isNearScreen) debounceNextPage()
-
-    }, [])
+    useEffect(function () {
+        if (isNearScreen) debounceHandleNextPage()
+    }, [debounceHandleNextPage, isNearScreen])
 
 
     return <>
@@ -35,9 +33,9 @@ export default function SearchResults({ params }) {
                     {decodeURI(keyword)}
                 </h3>
                 <ListOfGifs gifs={gifs} />
+                <br />
+                <div id="visor" ref={externalRef}></div>
             </>
         }
-        <br />
-        <div id="visor" ref={externalRef}></div>
     </>
 }
