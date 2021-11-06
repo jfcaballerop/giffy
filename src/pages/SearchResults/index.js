@@ -37,7 +37,7 @@ export default function SearchResults({ params }) {
                 <ListOfGifs gifs={gifs} />
                 <br />
                 <div id="visor" ref={visorREf}></div>
-                <button onClick={handleNextPage}>Next Page </button>
+                {/* <button onClick={handleNextPage}>Next Page </button> */}
             </>
         }
     </>

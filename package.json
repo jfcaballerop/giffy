@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "start-legacy": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
-    "test": "react-scripts --openssl-legacy-provider test",
+    "test": "react-scripts test",
+    "test-legacy": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts --openssl-legacy-provider eject"
   },
   "eslintConfig": {

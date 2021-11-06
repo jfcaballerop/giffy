@@ -16,14 +16,13 @@ test('Home work as expected', async () => {
     )
 });
 
-test.only('search button when input', async () => {
+test('search button when input', async () => {
     render(<App />)
-    const input = await screen.findAllByRole('textbox')
-    const button = await screen.findAllByRole('button')
-
+    const input = await screen.findByRole('textbox')
+    const button = await screen.findByRole('button')
     fireEvent.change(input, { target: { value: 'Matrix' } })
     fireEvent.click(button)
 
-    const title = await screen.findAllByText('Matrix')
+    const title = await screen.findByText('Matrix')
     expect(title).toBeVisible()
 })
