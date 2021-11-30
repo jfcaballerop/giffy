@@ -6,17 +6,25 @@ const useSingleGif = ({ id }) => {
 	const { gifs } = useGifs();
 	const gifsFromCache = gifs.find(singleGif => singleGif.id === id)
 	const [gif, setgif] = useState(gifsFromCache);
+	const [isLoading, setisLoading] = useState(false);
+	const [isError, setisError] = useState(false);
 
 	useEffect(() => {
 		if (!gif) {
+			setisLoading(true)
 			getSingleGif({ id })
 				.then(gif => {
 					setgif(gif)
+					setisLoading(false)
+					setisError(false)
+				}).catch(err => {
+					setisLoading(false)
+					setisError(true)
 				})
 		}
 	}, [gif, id]);
 
-	return { gif }
+	return { gif, isLoading, isError }
 
 }
 
