@@ -5,6 +5,7 @@ import { useGifs } from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 import useSEO from 'hooks/useSEO'
+import { Helmet } from 'react-helmet'
 
 export default function SearchResults({ params }) {
 	const { keyword } = params
@@ -21,7 +22,6 @@ export default function SearchResults({ params }) {
 	), [setpage])
 
 	const title = gifs ? `${gifs.length} resultados de ${keyword}` : ''
-	useSEO({ title })
 
 
 	useEffect(function () {
@@ -33,6 +33,10 @@ export default function SearchResults({ params }) {
 		{loading
 			? <Spinner />
 			: <>
+				<Helmet>
+					<title>{title}</title>
+					<meta name="description" content={title}></meta>
+				</Helmet>
 				<h3 className="App-title">
 					{decodeURI(keyword)}
 				</h3>
